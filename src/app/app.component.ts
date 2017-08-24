@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {initializeApp, database } from 'firebase';
-// import { AngularFire } from 'angularfire';
-import { FirebaseObjectObservable, FirebaseListObservable } from "angularfire2/database";
+import {AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} from "angularfire2/database";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-root',
@@ -9,50 +9,50 @@ import { FirebaseObjectObservable, FirebaseListObservable } from "angularfire2/d
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
-
-  courses$:FirebaseListObservable<any>;
-  lessons$:FirebaseObjectObservable<any>;
-
-  constructor () {
-    // Initialize Firebase
-   // let config = {
-   //   apiKey: "AIzaSyDMJ6tIlEzy5zF4t3AnUOPjCTnx3xc7Dbc",
-   //   authDomain: "learn-firebase-ac077.firebaseapp.com",
-   //   databaseURL: "https://learn-firebase-ac077.firebaseio.com",
-   //   projectId: "learn-firebase-ac077",
-   //   storageBucket: "learn-firebase-ac077.appspot.com",
-   //   messagingSenderId: "1006320598124"
-   // };
-   // initializeApp(config);
-   //
-   // // let root = database().ref('testArray');
-   //  let root = database().ref();
-   // root.on('value',function(snap){
-   //     console.log(snap.val())
-   // })
-   //  this.courses$ = af.database.list('courses');
-   //  this.lessons$ = af.database.list('lessons');
-  }
-
-  listPush () {
-
-  }
-
-  listRemove () {
-
-  }
-
-  listUpdate () {
-
-  }
-
-  objUpdate () {
-
-  }
-
-  objSet () {
-
-  }
+  // courses$:FirebaseListObservable<any>;
+  // lessons$:Observable<any>;
+  //
+  // constructor (private af:AngularFireDatabase) {
+  //   this.courses$ = af.list('courses');
+  //   this.lessons$ = af.list('lessons');
+  //
+  //   this.courses$.subscribe(
+  //     courses => console.log(courses)
+  //   );
+  //   // this.courses$ = af.object('we');
+  //   this.lessons$ = af.object('lessons/-Ks6y0XhHVfW5V4_FolC');
+  //   this.lessons$.subscribe(
+  //     lessons => console.log(lessons)
+  //   );
+  //   // this.courses$.map(courses => courses[0])
+  //   //   .subscribe(
+  //   //     course => this.firstCourse = course
+  //   //   )
+  // }
+  //
+  // listPush () {
+  //   this.courses$.push({description:'the new course'})
+  //     .then(
+  //       () => {
+  //         console.log('list push done!')
+  //       }
+  //     )
+  // }
+  //
+  // listRemove () {
+  //   // this.courses$.remove(this.firstCourse);
+  // }
+  //
+  // listUpdate () {
+  //     // this.courses$.update({})
+  // }
+  //
+  // objUpdate () {
+  //
+  // }
+  //
+  // objSet () {
+  //
+  // }
 
 }

@@ -1,0 +1,8 @@
+<div style="width: 500px;margin:auto;">
+  <h1> All Lessons</h1>
+  <h4 class="text-center"> Total Lessons{{lessons?.length}}</h4>
+  <input type="text" class="search-bar text-center" placeholder="Search" (keyup)="search(input.value)" #input>
+  <div class="lessons-list-container v-h-center-block-parent">
+    <app-lessons-list [InputOption]="filtered"></app-lessons-list>
+  </div>
+</div>
