@@ -1,40 +1,15 @@
-//.top-menu li:first-child {
-//  margin-left:10px;
-//}
-header img {
-  float: left;
-  width:45px;
-  height:45px;
-  margin-left:20px;
-}
-.top-menu {
-  float: left;
-}
-.top-menu ul {
-  height:55px;
-  line-height:55px;
-}
-.top-menu li {
-  float: left;
-  list-style: none;
-  text-decoration: none;
-  margin-left:10px;
+.top-menu li:first-child {
+  margin-left:55px;
 }
 header {
   height:55px;
   clear: both ;
   background: cornflowerblue;
 }
-//header {
-//  height: 55px;
-//  background-color: #5BC8CE;
-//}
-
 a {
   text-decoration: none;
   out-line: none;
   color: #fff;
-  margin-top: 15px;
   display: block;
 }
 
