@@ -1,12 +1,14 @@
 <div style="text-align: center;">
-  <h2>TODO</h2>
+  <h2>{{(course$ | async)?.description}}</h2>
   <div class="lessons-list-container v-h-center-block-parent">
-    <div class="nav-bar">
-      <button>Previous Page</button>
-      <button>Next Page</button>
+    <div class="nav-bar" style="margin: 20px 0;">
+      <button (click)="previous()">Previous Page</button>
+      <button (click)="next()">Next Page</button>
     </div>
-    <app-lessons-list></app-lessons-list>
-    <div class="tool-bar">
+    <div style="width: 500px;">
+    <app-lessons-list [InputOption]="lessons$"></app-lessons-list>
+    </div>
+    <div class="tool-bar" style="margin-top: 20px;">
       <button>New Lesson</button>
     </div>
   </div>
