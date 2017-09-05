@@ -54,4 +54,8 @@ export class LessonsService {
       .switchMap(lessonId => this.af.object(`lessons/${lessonId}`))
       .map(Lesson.fromJson);
   }
+
+  createNewLesson(courseId: string, lessonId: string): Observable<Lesson> {
+    return
+  }
 }

@@ -9,7 +9,7 @@
     <app-lessons-list [InputOption]="lessons$" (lesson)="navigateToLesson($event)"></app-lessons-list>
     </div>
     <div class="tool-bar" style="margin-top: 20px;">
-      <button>New Lesson</button>
+      <button routerLink="new" [queryParams]="{courseId: (course$ | async)?.$key}">New Lesson</button>
     </div>
   </div>
 </div>
