@@ -42,25 +42,6 @@ export class CoursesService {
   }
 
   findAllLessonsForCourse(courseUrl: string): Observable<Lesson[]> {
-    // const course$ = this.findLessonCourse(courseUrl)
-    //   .do(console.log);
-    // const lessonsPerCourses$ = course$.switchMap(course => {
-    //   return this.af.list(`lessonsPerCourse/${course.$key}`)
-    // }).do(console.log);
-    //
-    // return lessonsPerCourses$
-    //   .map(lspc => {
-    //     return lspc.ap(lpc => {
-    //       return this.af.object(`lessons/${lpc.$key}`)
-    //     })
-    //   })
-    //   .flatMap(fbojs => Observable.combineLatest(fbojs));
-
-
-    // return this.findLessonsKeysPerCourseUrl(courseUrl)
-      // .map(lspc => lspc.map(lessonKey => this.af.object(`lessons/` + lessonKey)))
-      // .flatMap(fbojs => Observable.combineLatest(fbojs));
-
     return this.findLessonsForLessonsKeys(this.findLessonsKeysPerCourseUrl(courseUrl));
   }
 
@@ -73,16 +54,17 @@ export class CoursesService {
       });
     return this.findLessonsForLessonsKeys(firstPageLessonKeys$);
   }
+
   // 下一页
-  loadNextPage(courseUrl:string,
-               lessonKey:string,
-               pageSize:number):Observable<Lesson[]> {
+  loadNextPage(courseUrl: string,
+               lessonKey: string,
+               pageSize: number): Observable<Lesson[]> {
     const lessonKeys$ = this.findLessonsKeysPerCourseUrl(courseUrl,
       {
         query: {
           orderByKey: true,
           startAt: lessonKey,
-          limitToFirst:pageSize + 1
+          limitToFirst: pageSize + 1
         }
       });
     return this.findLessonsForLessonsKeys(lessonKeys$)
@@ -90,16 +72,16 @@ export class CoursesService {
   }
 
   //上一页
-  loadPreviousPage(courseUrl:string,
-                  lessonKey:string,
-                  pageSize:number):Observable<Lesson[]>{
+  loadPreviousPage(courseUrl: string,
+  lessonKey: string,
+  pageSize: number): Observable<Lesson[]> {
 
     const lessonKeys$ = this.findLessonsKeysPerCourseUrl(courseUrl,
       {
         query: {
           orderByKey: true,
           endAt: lessonKey,
-          limitToLast:pageSize + 1
+          limitToLast: pageSize + 1
         }
       });
     return this.findLessonsForLessonsKeys(lessonKeys$)

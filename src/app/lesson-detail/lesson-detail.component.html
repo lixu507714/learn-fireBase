@@ -1,0 +1,17 @@
+<div style="text-align: center;width: 400px;">
+  <div class="nav-bar" style="margin: 20px 0;">
+    <button (click)="previous()">Previous Page</button>
+    <button (click)="next()">Next Page</button>
+  </div>
+  <h3>{{lesson?.description}}</h3>
+  <h4 style="margin: 10px 0;">Duration: {{lesson?.duration}}</h4>
+
+  <iframe *ngIf="lesson?.videoUrl" [src]="lesson?.videoUrl | safeUrl" width="300" height="180" allowfullscreen frameborder="0"></iframe>
+
+  <h2 style="margin: 10px 0;">Description</h2>
+  <p style="word-break: break-all;">{{lesson?.longDescription}}</p>
+  <div style="margin: 10px 0;">
+    <button>Edit Lesson</button>
+    <button>Delete</button>
+  </div>
+</div>

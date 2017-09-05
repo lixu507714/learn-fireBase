@@ -6,7 +6,7 @@
       <button (click)="next()">Next Page</button>
     </div>
     <div style="width: 500px;">
-    <app-lessons-list [InputOption]="lessons$"></app-lessons-list>
+    <app-lessons-list [InputOption]="lessons$" (lesson)="navigateToLesson($event)"></app-lessons-list>
     </div>
     <div class="tool-bar" style="margin-top: 20px;">
       <button>New Lesson</button>

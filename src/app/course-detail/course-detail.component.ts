@@ -2,7 +2,7 @@ import {Component, OnInit, Input} from '@angular/core';
 import {CoursesService} from "../shared/model/courses.service";
 import {Observable} from "rxjs";
 import {Lesson} from "../shared/model/lesson";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Course} from "../shared/model/course";
 
 @Component({
@@ -15,17 +15,15 @@ export class CourseDetailComponent implements OnInit {
   // lesson$: Observable<Lesson[]>;
   lessons$: Lesson[];
   courseUrl;
-  constructor(private coursesService: CoursesService,
+  constructor(private router:Router,
+              private coursesService: CoursesService,
               private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
     this.courseUrl = this.route.snapshot.params['id'];
     this.course$ = this.coursesService.findLessonCourse(this.courseUrl);
-    // this.lesson$ = this.coursesService.findAllLessonsForCourse(this.courseUrl);
-    // this.lesson$ = this.coursesService.loadFirstLessonsPage(this.courseUrl, 3);
     const lessons$ = this.coursesService.loadFirstLessonsPage(this.courseUrl, 3);
-    // this.lesson$.do(console.log).subscribe();
     lessons$.subscribe(lessons => this.lessons$ = lessons)
   }
 
@@ -43,9 +41,13 @@ export class CourseDetailComponent implements OnInit {
   previous() {
     this.coursesService.loadPreviousPage(
       this.courseUrl,
-      this.lessons$[0].$key,
+      this.lessons$[this.lessons$.length - 3].$key,
       3
     )
       .subscribe(lessons => this.lessons$ = lessons);
+  }
+
+  navigateToLesson(lesson:Lesson) {
+    this.router.navigate(['lessons',lesson.url]);
   }
 }

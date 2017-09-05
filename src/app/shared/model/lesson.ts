@@ -7,7 +7,8 @@ export class Lesson {
     public tags: string,
     public pro: string,
     public longDescription: string,
-    public courseId: string) {
+    public courseId: string,
+    public videoUrl:string) {
 
   }
 
@@ -20,7 +21,7 @@ export class Lesson {
     return array.map(Lesson.fromJson);
   }
 
-  static fromJson ({$key, description, duration, url, tags, pro, longDescription, courseId}) :Lesson {
+  static fromJson ({$key, description, duration, url, tags, pro, longDescription, courseId, videoUrl}) :Lesson {
     return new Lesson(
       $key,
       description,
@@ -29,6 +30,7 @@ export class Lesson {
       tags,
       pro,
       longDescription,
-      courseId);
+      courseId,
+      videoUrl);
   }
 }
