@@ -22,6 +22,8 @@ import { NewLessonComponent } from './new-lesson/new-lesson.component';
 import { LessonFromComponent } from './lesson-from/lesson-from.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditLessonComponent } from './edit-lesson/edit-lesson.component';
+import {LessonResolver} from "./shared/model/lesson.resolver";
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,7 @@ import { EditLessonComponent } from './edit-lesson/edit-lesson.component';
     NewLessonComponent,
     LessonFromComponent,
     EditLessonComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,7 @@ import { EditLessonComponent } from './edit-lesson/edit-lesson.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [LessonsService,CoursesService],
+  providers: [LessonsService,CoursesService, LessonResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

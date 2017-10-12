@@ -39,10 +39,7 @@ export const routerConfig: Route[] = [
       },
       {
         path: '',
-        component: CoursesComponent,
-        resolve: {
-          lesson: LessonResolver
-        }
+        component: CoursesComponent
       }
     ]
   },
@@ -55,7 +52,10 @@ export const routerConfig: Route[] = [
       },
       {
         path: 'edit',
-        component: EditLessonComponent
+        component: EditLessonComponent,
+        resolve: {
+          lesson: LessonResolver
+        }
       }
     ]
   }

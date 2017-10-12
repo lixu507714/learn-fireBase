@@ -1,4 +1,4 @@
-import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from "@angular/forms";
 import {validateUrl} from '../shared/validators/vaildateUrl';
 
@@ -8,7 +8,9 @@ import {validateUrl} from '../shared/validators/vaildateUrl';
   styleUrls: ['./lesson-from.component.scss']
 })
 export class LessonFromComponent implements OnInit, OnChanges {
+
   form: FormGroup;
+  @Input() initialValue: any;
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
       description: ['', Validators.required],

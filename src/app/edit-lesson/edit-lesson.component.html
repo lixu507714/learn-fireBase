@@ -1,3 +1,2 @@
-<p>
-  edit-lesson works!
-</p>
+<app-lesson-from [initialValue]="lesson" #form></app-lesson-from>
+<button (click)="save(form.value)">Save Changes</button>
