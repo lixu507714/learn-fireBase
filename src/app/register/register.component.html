@@ -1,0 +1,23 @@
+<div style="margin: 0 auto; text-align: center;">
+  <form autocomplete="off" novalidate class="login-form" [formGroup]="form">
+
+    <fieldset>
+      <legend>Register</legend>
+      <div class="form-filed">
+        <label>Email:</label>
+        <input name="email" formControlName="email">
+      </div>
+      <div class="form-filed" style="margin-top: 5px;">
+        <label>Password:</label>
+        <input name="password" formControlName="password" type="password">
+      </div>
+      <div class="form-filed" style="margin-top: 5px;">
+        <label>Confirm Password:</label>
+        <input name="confirm" formControlName="confirm" type="password">
+      </div>
+    </fieldset>
+
+    <button (click)="signUp()" [disabled]="!isPasswordMatch()" style="margin-top: 5px;">Create User</button>
+
+  </form>
+</div>

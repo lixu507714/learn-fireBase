@@ -7,6 +7,8 @@ import {NewLessonComponent} from "./new-lesson/new-lesson.component";
 import {EditLessonComponent} from "./edit-lesson/edit-lesson.component";
 import {Lesson} from "./shared/model/lesson";
 import {LessonResolver} from "./shared/model/lesson.resolver";
+import {LoginComponent} from "./login/login.component";
+import {RegisterComponent} from "./register/register.component";
 export const routerConfig: Route[] = [
   {
     path: "home",
@@ -58,5 +60,13 @@ export const routerConfig: Route[] = [
         }
       }
     ]
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
   }
 ];

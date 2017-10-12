@@ -24,6 +24,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditLessonComponent } from './edit-lesson/edit-lesson.component';
 import {LessonResolver} from "./shared/model/lesson.resolver";
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import {AuthService} from "./shared/security/auth.service";
 
 @NgModule({
   declarations: [
@@ -39,6 +41,7 @@ import { LoginComponent } from './login/login.component';
     LessonFromComponent,
     EditLessonComponent,
     LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,7 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [LessonsService,CoursesService, LessonResolver],
+  providers: [LessonsService,CoursesService, LessonResolver, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

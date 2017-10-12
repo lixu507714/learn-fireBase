@@ -1,0 +1,19 @@
+<div style="margin: 0 auto; text-align: center;">
+  <form autocomplete="off" novalidate class="login-form" [formGroup]="form">
+
+    <fieldset>
+      <legend>Login</legend>
+      <div class="form-filed">
+        <label>Email:</label>
+        <input name="email" formControlName="email">
+      </div>
+      <div class="form-filed" style="margin-top: 5px;">
+        <label>Password:</label>
+        <input name="password" formControlName="password" type="password">
+      </div>
+    </fieldset>
+
+    <button (click)="login()" style="margin-top: 5px;">Login</button>
+
+  </form>
+</div>
