@@ -18,6 +18,7 @@ export class NewLessonComponent implements OnInit {
   }
 
   save(form) {
+    console.log(form);
     this.lessonService.createNewLesson(this.courseId, form.value)
       .subscribe(
         () => {

@@ -21,6 +21,7 @@ import { SafeUrlPipe } from './shared/safe-url.pipe';
 import { NewLessonComponent } from './new-lesson/new-lesson.component';
 import { LessonFromComponent } from './lesson-from/lesson-from.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditLessonComponent } from './edit-lesson/edit-lesson.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SafeUrlPipe,
     NewLessonComponent,
     LessonFromComponent,
+    EditLessonComponent,
   ],
   imports: [
     BrowserModule,

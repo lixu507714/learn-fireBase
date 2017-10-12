@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {LessonsService} from "../shared/model/lessons.service";
 import {Lesson} from "../shared/model/lesson";
-import {} from "../p";
 
 @Component({
   selector: 'app-lesson-detail',
@@ -44,5 +43,10 @@ export class LessonDetailComponent implements OnInit {
   }
   navigateToLesson(lesson: Lesson) {
     this.router.navigate(['lessons', lesson.url])
+  }
+
+
+  requestLessonDeletion() {
+    this.lessonService.requestLessonDeletion(this.lesson.$key, this.lesson.courseId);
   }
 }

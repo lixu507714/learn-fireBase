@@ -4,6 +4,9 @@ import {CoursesComponent} from "./courses/courses.component";
 import {CourseDetailComponent} from "./course-detail/course-detail.component";
 import {LessonDetailComponent} from "./lesson-detail/lesson-detail.component";
 import {NewLessonComponent} from "./new-lesson/new-lesson.component";
+import {EditLessonComponent} from "./edit-lesson/edit-lesson.component";
+import {Lesson} from "./shared/model/lesson";
+import {LessonResolver} from "./shared/model/lesson.resolver";
 export const routerConfig: Route[] = [
   {
     path: "home",
@@ -36,12 +39,24 @@ export const routerConfig: Route[] = [
       },
       {
         path: '',
-        component: CoursesComponent
+        component: CoursesComponent,
+        resolve: {
+          lesson: LessonResolver
+        }
       }
     ]
   },
   {
     path:"lessons/:id",
-    component:LessonDetailComponent
+    children:[
+      {
+        path:'',
+        component:LessonDetailComponent
+      },
+      {
+        path: 'edit',
+        component: EditLessonComponent
+      }
+    ]
   }
 ];
